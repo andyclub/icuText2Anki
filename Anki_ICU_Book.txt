@@ -1,0 +1,27 @@
+Chapter 10
+
+Q: The dimensions of bladder for BP measure
+A:
+1.  Length of bladder=0.8 x circumference of the upper arm;
+2. Width of bladder = 0.4 x circumference of the upper arm
+3. The bladder width should encircle half of the upper arm circumference.
+	- If width of bladder is too small→false ↑BP
+	- If width seems too big → It is OK.
+
+Q: Some tips for BP measurement
+A:
+- When Patient are sitted, the arm and the back should be supported→ otherwise, falsely ↑BP
+- Why the head of the stethoscope should not put under the cuff? b/c this create sounds during deflation.
+- The rate of cuff deflation <2mmHg/sec
+- In high-output Pts, the sounds continue long after cuff deflation→DBP is indetermined.
+- In pregnancy, DBP=Korotcoff sounds become muffled (Phase  Ⅳ)
+- In low flow state, underestimate SBP by 30mmHg in 50% Pts
+- bell-shaped head of stethoscope should be used
+
+Q: The oscillometric method for BP measure
+A:
+- according to the pulsatile pressure change to measure BP
+- The most accurate measurement is MAP; b/c at the point the pulsatile pressure reach the maximum-amplitude.
+- DBP is most inaccurate; b/c arterial pulsation does not disappear at DBP.
+- It is inaccurate in noncompliance arteries (old Pts and peripheral aterial disease)
+- lower than direct BP measurements
