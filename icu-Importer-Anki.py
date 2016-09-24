@@ -1,33 +1,36 @@
 #!/usr/bin/python
 # encoding:utf-8
-import csv
 
-Question = []
-Answer = []
+Question,Answer = []
+# Set the path to your own note address and note filename
 file =  open("/Users/ad/Downloads/Anki_ICU_Book.txt")
 line =' '
 while line :
     line = file.readline()
-#    print line
-    if 'Q:' in line:
+    # get Question
+    if 'Q:' in line and len(line) > 3:
+        # just support single line question
         line = line.replace('\n','')
-        if len(line) > 3 :
-            Question.append(line)
+        Question.append(line)
+    # get answer
     if 'A:' in line:
         tmp = line
         while (not line.startswith('\n') ) and line:
             line = file.readline()
+            # apply to the markdown
+            while line.startswith('-'):
+                line = line.replace('-','   ',1)
             tmp = tmp + line
-            tmp = tmp.replace('-',' ')
         if len(tmp) > 3 :
             Answer.append(tmp)
 file.close()
-i = 0
+# set the path to your own not address and a temp file name
 file = open('//Users/ad/Downloads/Anki_ICU_Book_tmp.csv','w')
+i = 0
 while i < len(Question):
-    print Question[i]
-    print Answer[i]
-    print '...........'
+#    print Question[i]
+#    print Answer[i]
+#    print '...........'
     csvfile.write('"' + Question[i]+'",')
     csvfile.write('"' + Answer[i] + '"\n')
     i = i + 1
