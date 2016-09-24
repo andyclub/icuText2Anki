@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # encoding:utf-8
-import re
+import csv
 
 Question = []
 Answer = []
@@ -10,19 +10,25 @@ while line :
     line = file.readline()
 #    print line
     if 'Q:' in line:
-        Question.append(line)
+        line = line.replace('\n','')
+        if len(line) > 3 :
+            Question.append(line)
     if 'A:' in line:
-        tmp = ''
+        tmp = line
         while (not line.startswith('\n') ) and line:
             line = file.readline()
             tmp = tmp + line
             tmp = tmp.replace('-',' ')
-        Answer.append(tmp)
+        if len(tmp) > 3 :
+            Answer.append(tmp)
 file.close()
 i = 0
+file = open('//Users/ad/Downloads/Anki_ICU_Book_tmp.csv','w')
 while i < len(Question):
     print Question[i]
     print Answer[i]
     print '...........'
-    i =i+1
-
+    csvfile.write('"' + Question[i]+'",')
+    csvfile.write('"' + Answer[i] + '"\n')
+    i = i + 1
+file.close()
