@@ -17,8 +17,7 @@ from anki.importing import TextImporter
 
 
 def txtConvertor():
-	Question = []
-	Answer = []
+	FCard = []
 	csvCardCount = 0
 	# Set the path to your own note address and note filename
 	noteFile = "/Users/ad/Downloads/ToAnki.txt"
@@ -32,24 +31,29 @@ def txtConvertor():
 		while line and not ('A：' in line):
 			tmp = tmp + line
 			line = note.readline()
-		Question.append(tmp)
+		FCard.append([])
+		FCard[csvCardCount]=[tmp,'','']
 		tmp = ""
 		#Got A:
 		while line and not ('______________' in line):
-			tmp = tmp + line
+			if '[' in line and ']' in line:
+				line = line.replace('[','',1)
+				line = line.replace(']', '', 1)
+				FCard[csvCardCount][2]=line
+			else:
+				tmp = tmp + line
 			line = note.readline()
-		Answer.append(tmp)
+		FCard[csvCardCount][1]=tmp
 		tmp = ""
 		csvCardCount = csvCardCount + 1
 		line = note.readline()
 	note.close()
 	# temp csv file
 	file = open(noteFile + '_tmp.csv','w')
-	i = 0
-	while i < len(Question):
-		file.write('"' + Question[i]+'",')
-		file.write('"' + Answer[i] + '"\n')
-		i = i + 1
+	for i in (0,len(FCard)-1):
+		file.write('"' + FCard[i][0] + '",')
+		file.write('"' + FCard[i][1] + '",')
+		file.write('"' + FCard[i][2] + '"\n')
 	file.close()
 	return noteFile + '_tmp.csv'
 
