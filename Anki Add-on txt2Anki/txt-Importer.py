@@ -71,7 +71,7 @@ def txtImporter():
 	mw.reset()
 	CardCount = mw.col.cardCount()
 	# show a message box
-	showInfo("Cards before import:" + str(oriCardCount) + "\nCards after import:" + str(CardCount))
+	showInfo("Cards imported:" + str(CardCount-oriCardCount) + "\n\nCards Count:" + str(CardCount))
 	
 	                                 
 
