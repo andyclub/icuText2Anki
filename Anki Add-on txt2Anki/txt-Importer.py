@@ -23,42 +23,34 @@ def txtConvertor():
 	# Set the path to your own note address and note filename
 	noteFile = "/Users/ad/Downloads/ToAnki.txt"
 	note =  open(noteFile)
-#	print note.readline()
 	line = " "
 	tmp = ""
 	while line:
 		while line and not('Q：' in line):
 			line = note.readline()
 		#Got Q:
-		print 'Got Q', line
 		while line and not ('A：' in line):
 			tmp = tmp + line
 			line = note.readline()
 		Question.append(tmp)
-		print 'ALL Q', tmp
 		tmp = ""
 		#Got A:
-		print 'Got A:',line
 		while line and not ('______________' in line):
 			tmp = tmp + line
 			line = note.readline()
 		Answer.append(tmp)
-		print 'All A:\n',tmp
 		tmp = ""
 		csvCardCount = csvCardCount + 1
 		line = note.readline()
-		print "Count: ", csvCardCount, "\nQ:",tmp, "\nA:",tmp
 	note.close()
 	# temp csv file
 	file = open(noteFile + '_tmp.csv','w')
 	i = 0
-	print 'Q&A writing into csv file, casds like this:'
 	while i < len(Question):
 		file.write('"' + Question[i]+'",')
 		file.write('"' + Answer[i] + '"\n')
 		i = i + 1
 	file.close()
-	print("Converted cards:" + str(csvCardCount))
 	return noteFile + '_tmp.csv'
 
 def txtImporter():
